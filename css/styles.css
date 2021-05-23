@@ -4,7 +4,7 @@
 body {
     display: flex;
     justify-content: center;
-    background-image: url(/imgs/bkg_img.jpg);
+    background-image: url(https://github.com/rei-rala/calcul_v1/blob/main/imgs/bkg_img.jpg?raw=true);
     background-size: cover;
     height:1500px;
 }
@@ -18,7 +18,6 @@ body {
     max-width: 30%;
     height: 50%;
     gap: 2%;
-    overflow: hidden;
 }
 
 .screen {
