@@ -1,0 +1,63 @@
+.container {
+    margin-top: 15px;
+    display:flex;
+    flex-flow: column;
+    gap: 7.5px;
+    width: 245px;
+}
+
+.screen {
+    display:flex;
+    flex-flow: wrap;
+    justify-content: flex-end;
+    margin:0 1%;
+    height: 60px;
+    border: 1px solid grey;
+    border-radius: 7.5px;
+    background-color: blanchedalmond;
+    overflow: hidden;
+}
+
+.calculator_screen {
+    padding: 0 5px;
+    text-align: right;
+    display:block;
+    width: 100%;
+}
+
+.s1 {
+    font-size: 0.8em;
+    height: 1.2em;
+    background-color: hsl(0, 0%, 0%,0.1);
+}
+
+.calculator {
+    display: flex;
+    flex-flow: row;
+}
+
+.group {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    row-gap: 5px;
+    
+}
+.group0 {
+    width: 75%;
+}
+.group1 {
+    width: 25%;
+}
+
+.btn {
+    height: 50px;
+    width: 50px;
+    border: 1px solid grey;
+}
+.igual, .mas {
+    height: 105px;
+}
+.zero {
+    width: 110px;
+}

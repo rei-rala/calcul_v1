@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Calculadora</title>
+</head>
+<body>
+
+
+
+  <div class='container'>
+    <div class="screen">
+      <!-- <h6 class='calculator_screen s1' id="operacion">Operacion</h6> -->
+      <input type="text" class='calculator_screen s1' id="resultado" maxlength=30 value=0 readonly>
+      <h5 class='calculator_screen s2' id="operacion">Hello!</h5>
+  </div>
+
+  <div class="calculator">
+    <div class='group group0' id='botones'>
+      <button class='btn btn-danger'         onclick="reset()">C</button>
+      <button class='btn btn-primary'        onclick='operator(this)'>/</button>
+      <button class='btn btn-primary'        onclick='operator(this)'>*</button>
+      <button class='btn btn-secondary'      onclick="send(this)">7</button>
+      <button class='btn btn-secondary'      onclick="send(this)">8</button>
+      <button class='btn btn-secondary'      onclick="send(this)">9</button>
+      <button class='btn btn-secondary'      onclick="send(this)">4</button>
+      <button class='btn btn-secondary'      onclick="send(this)">5</button>
+      <button class='btn btn-secondary'      onclick="send(this)">6</button>
+      <button class='btn btn-secondary'      onclick="send(this)">1</button>
+      <button class='btn btn-secondary'      onclick="send(this)">2</button>
+      <button class='btn btn-secondary'      onclick="send(this)">3</button>
+      <button class='btn btn-secondary zero' onclick="send(this)">0</button>
+      <button class='btn btn-info' id="dot"  onclick="send(this)">.</button>
+    </div>
+
+    <div class='group group1' id='botones'>
+      <button class='btn btn-primary menos'  onclick='operator(this)'>-</button>
+      <button class='btn btn-primary mas'    onclick='operator(this)'>+</button>
+      <button class='btn btn-success igual'  onclick='equals()'>=</button>
+    </div>
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script>
+    let rdo = document.getElementById("resultado");
+    let op = document.getElementById("operacion");
+
+    reset = () => {
+      rdo.value =0;
+      op.innerHTML = 'RESET';
+      op.style.color = 'crimson';
+      setTimeout( () => {op.innerHTML='Hello!'; op.style.color = 'black';} ,200) 
+    }
+    
+    send = (elemento) => {
+      if ( rdo.value.includes('.') && elemento.innerHTML == '.') {} else {
+        if (rdo.value === '0') {
+          if (elemento.innerHTML == '.') {
+            rdo.value += elemento.innerHTML;
+          } else {
+          rdo.value = elemento.innerHTML;
+          }
+        } else {
+          rdo.value += elemento.innerHTML
+        }
+      }
+    }
+
+    let aaa = [ ]
+    operator = (operando) => {
+      if (['Sumar', 'Restar', 'Multiplicar', 'Dividir'].includes(op.innerHTML) ) {
+        console.log('YA ESTAS OPERANDO CONCHUDO')} else{
+      switch (operando.innerHTML) {
+        case '+':
+          op.innerHTML='Sumar';
+          aaa[1] = '+'
+          break;
+        case '-':
+          op.innerHTML='Restar';
+          aaa[1] = '-'
+          break;
+        case '*':
+          op.innerHTML='Multiplicar'
+          aaa[1] = '*'
+          break;
+        case '/':
+          op.innerHTML='Dividir'
+          aaa[1] = '/'
+          break;
+      }
+      aaa[0] = rdo.value;
+      rdo.value = 0;
+    }
+  }
+      equals = () => {
+        a = parseFloat(aaa[0])
+        b = parseFloat(rdo.value)
+        switch (aaa[1]) {
+          case '+':
+            rdo.value= a+b;
+            console.log(a+b);
+            break;
+          case '-':
+            rdo.value= a-b;
+            console.log(a-b);
+            break;
+          case '*':
+            rdo.value= a*b;
+            console.log(a*b);   
+            break;
+          case '/':
+            rdo.value= a/b;
+            console.log(a/b); 
+            break;
+        }
+        op.innerHTML='Resultado'
+      }
+    //console.log( (Number('3.141516')).toFixed(5) )
+  </script>
+</body>
+</html>
