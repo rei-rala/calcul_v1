@@ -1,41 +1,78 @@
+
 let rdo = document.getElementById("resultado");
 let op = document.getElementById("operacion");
+let memoria = [ ]
 
-let operator = document.getElementsByClassName('operator')
-operator.addEventListener('click', (evento) => console.log(evento))
-
-
-
-rdo.value = 0
-
-texto=''
-const showOp = (numero) => {
-  if (op.innerHTML = 'Operacion') {
-    op.innerHTML = texto
-  }
-  texto += numero
-  return op.innerHTML+=texto
+reset = () => {
+  memoria[0] = '?'
+  rdo.innerHTML =0;
+  op.innerHTML = 'RESET';
+  op.style.color = 'crimson';
+  setTimeout( () => {op.innerHTML='Hello!'; op.style.color = 'black';} ,200) 
 }
 
-showOp(12325)
+send = (elemento) => {
+  if ( rdo.innerHTML.includes('.') && elemento.innerHTML == '.') {} else {
+    if (rdo.innerHTML === '0') {
+      if (elemento.innerHTML == '.') {
+        rdo.innerHTML += elemento.innerHTML;
+      } else {
+      rdo.innerHTML = elemento.innerHTML;
+      }
+    } else {
+      rdo.innerHTML += elemento.innerHTML
+    }
+  }
+}
 
 
-
-const calculate = ( n1, operator, n2) => {
-  let result = "";
-  switch (operator) {
-    case "+":
-      result = n1 + n2;
+operator = (operando) => {
+  if (['Sumar', 'Restar', 'Multiplicar', 'Dividir'].includes(op.innerHTML) ) {
+    console.log('YA ESTAS OPERANDO CONCHUDO')} else{
+  switch (operando.innerHTML) {
+    case '+':
+      op.innerHTML='Sumar';
+      memoria[1] = '+'
       break;
-    case "-":
-      result = n1 - n2;
+    case '-':
+      op.innerHTML='Restar';
+      memoria[1] = '-'
       break;
-    case "/":
-      result = n1 / n2;
+    case '*':
+      op.innerHTML='Multiplicar'
+      memoria[1] = '*'
       break;
-    case "*":
-      result = n1 * n2;
+    case '/':
+      op.innerHTML='Dividir'
+      memoria[1] = '/'
       break;
   }
-  return result;
-};
+  memoria[0] = rdo.innerHTML;
+  rdo.innerHTML = 0;
+}
+}
+  equals = () => {
+    a = parseFloat(memoria[0])
+    b = parseFloat(rdo.innerHTML)
+    switch (memoria[1]) {
+      case '+':
+        rdo.innerHTML= a+b;
+        console.log(a+b);
+        break;
+      case '-':
+        rdo.innerHTML= a-b;
+        console.log(a-b);
+        break;
+      case '*':
+        rdo.innerHTML= a*b;
+        console.log(a*b);   
+        break;
+      case '/':
+        rdo.innerHTML= a/b;
+        console.log(a/b); 
+        break;
+    }
+    op.innerHTML='Resultado'
+  }
+
+//console.log( (Number('3.141516')).toFixed(5) )

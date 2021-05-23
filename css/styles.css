@@ -1,63 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Xanh+Mono&display=swap');
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url(/imgs/bkg_img.jpg);
+    background-size: cover;
+    height:1500px;
+}
+
 .container {
-    margin-top: 15px;
+    margin-top: 5.5%;
+    padding: 0.5%;
     display:flex;
     flex-flow: column;
-    gap: 7.5px;
-    width: 245px;
+    justify-content: space-between;
+    max-width: 30%;
+    height: 50%;
+    gap: 2%;
+    overflow: hidden;
 }
 
 .screen {
     display:flex;
     flex-flow: wrap;
     justify-content: flex-end;
-    margin:0 1%;
-    height: 60px;
-    border: 1px solid grey;
-    border-radius: 7.5px;
+    height: 25%;
+    width: 100%;
+    border: 3px solid grey;
+    border-radius: 35px 35px 0 0;
     background-color: blanchedalmond;
-    overflow: hidden;
 }
 
 .calculator_screen {
-    padding: 0 5px;
+    padding: 2% 3%;
     text-align: right;
-    display:block;
     width: 100%;
 }
 
+.calculator {
+    opacity: 0.9;
+    display: flex;
+    flex-flow: row;
+    gap: 3%;
+    height: 100%;
+    width: 100%;
+}
+
+.screen:hover, .btn:hover {
+    border:3px solid white;
+    opacity: 0.75;
+}
+
+.btn {
+    border: 3px solid grey;
+}
+.btn:active {
+    border:3px solid violet;
+}
+
+
 .s1 {
-    font-size: 0.8em;
-    height: 1.2em;
+    font-family: 'Pattaya', sans-serif;
+    font-size: 1.5em;
     background-color: hsl(0, 0%, 0%,0.1);
 }
 
-.calculator {
-    display: flex;
-    flex-flow: row;
+.s2 {
+    font-family: 'Xanh Mono', monospace;
+    font-size: 3em;
 }
+
+
+
 
 .group {
     display:flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    row-gap: 5px;
-    
+    justify-content: space-between;
 }
+
 .group0 {
     width: 75%;
 }
 .group1 {
-    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    width: 22.5%;
 }
 
 .btn {
-    height: 50px;
-    width: 50px;
-    border: 1px solid grey;
+    font-size: 2.5em;
+    border-radius: 0;
+}
+
+.group0 > .btn {
+    width: 30%;
+    height: 17.5%;
+}
+
+.group1 > .btn {
+    width: 100%;
+}
+#zero {
+    width: 65%;
+    border-radius: 0 0 0 35px;
+}
+
+.menos {
+    height: 17.5%;
+}
+.igual {
+    border-radius: 0 0 35px 0;
 }
 .igual, .mas {
-    height: 105px;
+    height: 37.5%;
 }
-.zero {
-    width: 110px;
+
+@media screen and (max-width: 864px) {
+
+    .container {
+        height: 27.5%;
+    }
+    .screen {
+        border-radius: 20px 20px 0 0;
+    }
+
+    .s1 {
+        padding: 3.5% 7.5%;
+        font-size: 1em;
+    }
+    .s2 {
+        padding: 1% 5%;
+        font-size: 1.5em;
+    }
+    .btn {
+        font-size: 1.25em;
+    }
+    #zero {
+        border-radius: 0 0 0 20px;
+    }
+    
+    .igual {
+        border-radius: 0 0 20px 0;
+    }
 }
