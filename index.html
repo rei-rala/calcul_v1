@@ -11,38 +11,52 @@
 <body>
 
 
+  <div class="img_bkg">
+  </div>
+  <div class="imgs bkg1">
+    <img class="cosmic c1" src="imgs/cosmi.png" alt="Polvo cosmico">
+  </div>
+    <div class="imgs bkg2">
+    <img class="cosmic c2" src="imgs/cosmi.png" alt="Polvo cosmico">
+  </div>
+
 
   <div class='container'>
+
     <div class="screen">
       <h6 class='calculator_screen s1' id="operacion">Hello!</h6>
-      <h5 type="text" class='calculator_screen s2' id="resultado">0</h5>
-  </div>
-
-  <div class="calculator">
-    <div class='group group0' id='botones'>
-      <button class='btn btn-danger'              onclick="reset()">C</button>
-      <button class='btn btn-primary'             onclick='operator(this)'>/</button>
-      <button class='btn btn-primary'             onclick='operator(this)'>*</button>
-      <button class='btn btn-secondary'           onclick="send(this)">7</button>
-      <button class='btn btn-secondary'           onclick="send(this)">8</button>
-      <button class='btn btn-secondary'           onclick="send(this)">9</button>
-      <button class='btn btn-secondary'           onclick="send(this)">4</button>
-      <button class='btn btn-secondary'           onclick="send(this)">5</button>
-      <button class='btn btn-secondary'           onclick="send(this)">6</button>
-      <button class='btn btn-secondary'           onclick="send(this)">1</button>
-      <button class='btn btn-secondary'           onclick="send(this)">2</button>
-      <button class='btn btn-secondary'           onclick="send(this)">3</button>
-      <button class='btn btn-secondary' id='zero' onclick="send(this)">0</button>
-      <button class='btn btn-info' id="dot"       onclick="send(this)">.</button>
+      <h5 class='calculator_screen s2' id="resultado">0</h5>
     </div>
 
-    <div class='group group1' id='botones'>
-      <button class='btn btn-primary menos'  onclick='operator(this)'>-</button>
-      <button class='btn btn-primary mas'    onclick='operator(this)'>+</button>
-      <button class='btn btn-success igual'  onclick='equals()'>=</button>
+    <div class="calculator">
+      <div class='group group0' id='botones'>
+        <button class='btn btn-danger'              onclick="reset()">C</button>
+        <button class='btn btn-primary'             onclick='operator(this)'>/</button>
+        <button class='btn btn-primary'             onclick='operator(this)'>*</button>
+        <button class='btn btn-secondary'           onclick="send(this)">7</button>
+        <button class='btn btn-secondary'           onclick="send(this)">8</button>
+        <button class='btn btn-secondary'           onclick="send(this)">9</button>
+        <button class='btn btn-secondary'           onclick="send(this)">4</button>
+        <button class='btn btn-secondary'           onclick="send(this)">5</button>
+        <button class='btn btn-secondary'           onclick="send(this)">6</button>
+        <button class='btn btn-secondary'           onclick="send(this)">1</button>
+        <button class='btn btn-secondary'           onclick="send(this)">2</button>
+        <button class='btn btn-secondary'           onclick="send(this)">3</button>
+        <button class='btn btn-secondary' id='zero' onclick="send(this)">0</button>
+        <button class='btn btn-info' id="dot"       onclick="send(this)">.</button>
+      </div>
+
+      <div class='group group1' id='botones'>
+        <button class='btn btn-primary menos'  onclick='operator(this)'>-</button>
+        <button class='btn btn-primary mas'    onclick='operator(this)'>+</button>
+        <button class='btn btn-success igual'  onclick='equals()'>=</button>
+      </div>
     </div>
 
   </div>
+
+<div>
+</div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>

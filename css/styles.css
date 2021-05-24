@@ -1,23 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Xanh+Mono&display=swap');
 
-
 body {
-    display: flex;
-    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img_bkg {
+    position: absolute;
     background-image: url(https://github.com/rei-rala/calcul_v1/blob/main/imgs/bkg_img.jpg?raw=true);
-    background-size: cover;
-    height:1500px;
+    background-repeat: repeat;
+    background-size: 350px;
+    height: 100%;
+    width: 100%;
+    z-index: -999;
+}
+
+.imgs {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -999;
+}
+
+.bkg1 {
+    filter: hue-rotate(150deg);
+    opacity: 0.65;
+}
+.bkg2 {
+    opacity: 0.65;
+}
+
+
+.c1 {
+    z-index: -999;
+    position: absolute;
+    width: 20%;
+    opacity: 0.75;
+    animation: bgk1_anim 180s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+
+}
+.c2 {
+    z-index: -999;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50%;
+    opacity: 0.55;
+    animation: bgk2_anim 360s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes bgk1_anim {
+    0% {
+        filter: hue-rotate(25deg);
+        transform: rotate(0deg);
+    }
+    25% {
+        filter: hue-rotate(125deg);
+        transform: rotate(90deg);
+    }
+    50% {
+        filter: hue-rotate(75deg);
+        transform: rotate(180deg);
+    }
+    75% {
+        filter: hue-rotate(325deg);
+        transform: rotate(270deg);
+    } 
+    100% {
+        filter: hue-rotate(25deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes bgk2_anim {
+    0% {
+        transform: rotate(0);
+        right:-15%;
+        top: -35%;
+    }
+    
+    50% {
+        transform: rotate(1800deg);
+        right:-25%;
+        top: 5%;
+    } 
+    100% {
+        transform: rotate(-3600deg);
+        right:100%;
+        top: 80%;
+    } 
 }
 
 .container {
-    margin-top: 5.5%;
     padding: 0.5%;
     display:flex;
     flex-flow: column;
-    justify-content: space-between;
     max-width: 30%;
-    height: 50%;
-    gap: 2%;
+    height: 95%;
+    gap: 2.5%;
 }
 
 .screen {
@@ -59,16 +148,20 @@ body {
     border:3px solid violet;
 }
 
+.calculator_screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
 .s1 {
     font-family: 'Pattaya', sans-serif;
-    font-size: 1.5em;
-    background-color: hsl(0, 0%, 0%,0.1);
+    background: linear-gradient(to bottom, rgba(255, 153, 0, 0.75), rgba(255, 153, 0, 0.55), rgba(255, 153, 0, 0) );
 }
 
 .s2 {
     font-family: 'Xanh Mono', monospace;
-    font-size: 3em;
+    font-size: 1.5rem;
 }
 
 
@@ -78,6 +171,7 @@ body {
     display:flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    height: 100%;
 }
 
 .group0 {
@@ -85,7 +179,6 @@ body {
 }
 .group1 {
     display: flex;
-    justify-content: flex-end;
     width: 22.5%;
 }
 
@@ -102,13 +195,14 @@ body {
 .group1 > .btn {
     width: 100%;
 }
+
 #zero {
     width: 65%;
     border-radius: 0 0 0 35px;
 }
 
 .menos {
-    height: 17.5%;
+    height: 17.59%;
 }
 .igual {
     border-radius: 0 0 35px 0;
@@ -143,5 +237,15 @@ body {
     
     .igual {
         border-radius: 0 0 20px 0;
+    }
+}
+
+@media (min-aspect-ratio: 6/5) and (max-width:650px) {
+    .igual {
+        font-size: 10em;
+    }
+    .img_bkg, .bkg {
+        -webkit-transform:rotate(90deg); /* Chrome, Safari, Opera */
+        transform:rotate(90deg);
     }
 }

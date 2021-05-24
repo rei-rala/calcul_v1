@@ -1,78 +1,97 @@
 
 let rdo = document.getElementById("resultado");
 let op = document.getElementById("operacion");
-let memoria = [ ]
+let memoria = [0,0,0 ]
+let usuario_opero = 'No'
 
 reset = () => {
-  memoria[0] = '?'
-  rdo.innerHTML =0;
+  console.log('Reset')
+  memoria[0] = 0
+  rdo.innerHTML = 0;
   op.innerHTML = 'RESET';
   op.style.color = 'crimson';
   setTimeout( () => {op.innerHTML='Hello!'; op.style.color = 'black';} ,200) 
 }
 
 send = (elemento) => {
-  if ( rdo.innerHTML.includes('.') && elemento.innerHTML == '.') {} else {
-    if (rdo.innerHTML === '0') {
-      if (elemento.innerHTML == '.') {
-        rdo.innerHTML += elemento.innerHTML;
-      } else {
-      rdo.innerHTML = elemento.innerHTML;
-      }
+  let largo = rdo.innerHTML.length;
+  //console.log(largo); // Prueba el largo del input
+  if (rdo.innerHTML == 'Superado maximo') {}
+  else {
+    if (largo == '21') {
+      console.log('Excedido Caracteres')
     } else {
-      rdo.innerHTML += elemento.innerHTML
+      if ( rdo.innerHTML.includes('.') && elemento.innerHTML == '.') {console.log('Separador decimal ya incorporado')} else {
+        if (rdo.innerHTML === '0') {
+          if (elemento.innerHTML == '.') {
+            rdo.innerHTML += elemento.innerHTML;
+          } else {
+          rdo.innerHTML = elemento.innerHTML;
+          }
+        } else {
+          rdo.innerHTML += elemento.innerHTML;
+        }
+      }
     }
   }
 }
 
 
 operator = (operando) => {
-  if (['Sumar', 'Restar', 'Multiplicar', 'Dividir'].includes(op.innerHTML) ) {
-    console.log('YA ESTAS OPERANDO CONCHUDO')} else{
-  switch (operando.innerHTML) {
-    case '+':
-      op.innerHTML='Sumar';
-      memoria[1] = '+'
-      break;
-    case '-':
-      op.innerHTML='Restar';
-      memoria[1] = '-'
-      break;
-    case '*':
-      op.innerHTML='Multiplicar'
-      memoria[1] = '*'
-      break;
-    case '/':
-      op.innerHTML='Dividir'
-      memoria[1] = '/'
-      break;
-  }
-  memoria[0] = rdo.innerHTML;
-  rdo.innerHTML = 0;
-}
-}
-  equals = () => {
-    a = parseFloat(memoria[0])
-    b = parseFloat(rdo.innerHTML)
-    switch (memoria[1]) {
+  if (rdo.innerHTML == 'Superado maximo') {}
+  else {
+    if ( usuario_opero == 'Si' ) {
+      console.log(`Ya estas operando: ${op.innerHTML} a ${memoria[0]}`)
+    } else {
+      memoria[0] = rdo.innerHTML;
+      rdo.innerHTML = 0;
+      switch (operando.innerHTML) {
       case '+':
-        rdo.innerHTML= a+b;
-        console.log(a+b);
+        op.innerHTML= `Sumando a ${memoria[0]}`;
+        memoria[1] = '+';
         break;
       case '-':
-        rdo.innerHTML= a-b;
-        console.log(a-b);
+        op.innerHTML=`Restar a ${memoria[0]}`;
+        memoria[1] = '-';
         break;
       case '*':
-        rdo.innerHTML= a*b;
-        console.log(a*b);   
+        op.innerHTML=`Multiplicar ${memoria[0]} por`;
+        memoria[1] = '*';
         break;
       case '/':
-        rdo.innerHTML= a/b;
-        console.log(a/b); 
+        op.innerHTML=`Dividir a ${memoria[0]} por`;
+        memoria[1] = '/';
         break;
+      }
+      usuario_opero = 'Si';
     }
-    op.innerHTML='Resultado'
   }
 
-//console.log( (Number('3.141516')).toFixed(5) )
+}
+
+equals = () => {
+  if (usuario_opero == 'Si') {
+  a = parseFloat(memoria[0]);
+  b = parseFloat(rdo.innerHTML);
+
+  switch (memoria[1]) {
+    case '+':
+      rdo.innerHTML= a+b;
+      break;
+    case '-':
+      rdo.innerHTML= a-b;
+      break;
+    case '*':
+      rdo.innerHTML= a*b;
+      break;
+    case '/':
+      rdo.innerHTML= (a/b);
+      break;
+    }
+  console.log(rdo.innerHTML)
+  op.innerHTML= 'Resultado';
+  usuario_opero = 'No';
+  } else {
+    console.log('Aguardando operacion')
+  }
+}
