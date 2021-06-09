@@ -1,251 +1,277 @@
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Xanh+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Xanh+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
 body {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .img_bkg {
-    position: absolute;
-    background-image: url(https://github.com/rei-rala/calcul_v1/blob/main/imgs/bkg_img.jpg?raw=true);
-    background-repeat: repeat;
-    background-size: 350px;
-    height: 100%;
-    width: 100%;
-    z-index: -999;
+  position: absolute;
+  background-image: url(https://github.com/rei-rala/calcul_v1/blob/main/imgs/bkg_img.jpg?raw=true);
+  background-repeat: repeat;
+  background-size: 275px;
+  height: 100%;
+  width: 100%;
+  z-index: -999;
 }
 
 .imgs {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -999;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -999;
 }
 
 .bkg1 {
-    filter: hue-rotate(150deg);
-    opacity: 0.65;
+  filter: hue-rotate(150deg);
+  opacity: 0.65;
 }
 .bkg2 {
-    opacity: 0.65;
+  opacity: 0.65;
 }
-
 
 .c1 {
-    z-index: -999;
-    position: absolute;
-    width: 20%;
-    opacity: 0.75;
-    animation: bgk1_anim 180s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-timing-function: ease-in-out;
-
+  z-index: -999;
+  position: absolute;
+  width: 20%;
+  opacity: 0.75;
+  animation: bgk1_anim 60s infinite alternate-reverse linear;
 }
 .c2 {
-    z-index: -999;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 50%;
-    opacity: 0.55;
-    animation: bgk2_anim 360s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
+  z-index: -999;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 50%;
+  opacity: 0.55;
+  animation: bgk2_anim 180s infinite alternate ease-in-out;
 }
 
 @keyframes bgk1_anim {
-    0% {
-        filter: hue-rotate(25deg);
-        transform: rotate(0deg);
-    }
-    25% {
-        filter: hue-rotate(125deg);
-        transform: rotate(90deg);
-    }
-    50% {
-        filter: hue-rotate(75deg);
-        transform: rotate(180deg);
-    }
-    75% {
-        filter: hue-rotate(325deg);
-        transform: rotate(270deg);
-    } 
-    100% {
-        filter: hue-rotate(25deg);
-        transform: rotate(360deg);
-    }
+  0% {
+    filter: hue-rotate(25deg);
+    transform: rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(125deg);
+    transform: rotate(90deg);
+  }
+  50% {
+    filter: hue-rotate(75deg);
+    transform: rotate(180deg);
+  }
+  75% {
+    filter: hue-rotate(325deg);
+    transform: rotate(270deg);
+  }
+  100% {
+    filter: hue-rotate(25deg);
+    transform: rotate(360deg);
+  }
 }
 @keyframes bgk2_anim {
-    0% {
-        transform: rotate(0);
-        right:-15%;
-        top: -35%;
-    }
-    
-    50% {
-        transform: rotate(1800deg);
-        right:-25%;
-        top: 5%;
-    } 
-    100% {
-        transform: rotate(-3600deg);
-        right:100%;
-        top: 80%;
-    } 
+  0% {
+    transform: rotate(0);
+    right: 0%;
+    top: 0%;
+  }
+
+  50% {
+    transform: rotate(1800deg);
+    right: 0%;
+    top: 10%;
+  }
+  75% {
+    transform: rotate(-3600deg);
+    right: 20%;
+    top: 50%;
+  }
+  100% {
+    transform: rotate(-1800deg);
+    right: 80%;
+    top: 30%;
+  }
 }
 
 .container {
-    padding: 0.5%;
-    display:flex;
-    flex-flow: column;
-    max-width: 30%;
-    height: 95%;
-    gap: 2.5%;
+  padding: 0.5%;
+  display: flex;
+  flex-flow: column;
+  max-width: 30%;
+  height: 95%;
+  gap: 2.5%;
 }
 
 .screen {
-    display:flex;
-    flex-flow: wrap;
-    justify-content: flex-end;
-    height: 25%;
-    width: 100%;
-    border: 3px solid grey;
-    border-radius: 35px 35px 0 0;
-    background-color: blanchedalmond;
-    overflow: hidden;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-end;
+  height: 25%;
+  width: 100%;
+  border: 3px solid grey;
+  border-radius: 35px 35px 0 0;
+  background-color: blanchedalmond;
+  overflow: hidden;
 }
 
 .calculator_screen {
-    padding: 2% 3%;
-    text-align: right;
-    width: 100%;
-}
-
-.calculator {
-    opacity: 0.9;
-    display: flex;
-    flex-flow: row;
-    gap: 3%;
-    height: 100%;
-    width: 100%;
-}
-
-.screen:hover, .btn:hover {
-    border:3px solid white;
-    opacity: 0.75;
-}
-
-.btn {
-    border: 3px solid grey;
-}
-.btn:active {
-    border:3px solid violet;
+  padding: 2% 3%;
+  text-align: right;
+  width: 100%;
 }
 
 .calculator_screen {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .s1 {
-    font-family: 'Pattaya', sans-serif;
-    background: linear-gradient(to bottom, rgba(255, 153, 0, 0.75), rgba(255, 153, 0, 0.55), rgba(255, 153, 0, 0) );
+  font-family: "Pattaya", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 153, 0, 0.75),
+    rgba(255, 153, 0, 0.55),
+    rgba(255, 153, 0, 0)
+  );
+  font-size: 1.15rem;
 }
 
-.s2 {
-    font-family: 'Xanh Mono', monospace;
-    font-size: 1.5rem;
-}
-
-
-
-
-.group {
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.group0 {
-    width: 75%;
-}
-.group1 {
-    display: flex;
-    width: 22.5%;
+.calculator {
+  opacity: 0.9;
+  display: flex;
+  flex-flow: row;
+  gap: 3%;
+  height: 100%;
+  width: 100%;
 }
 
 .btn {
-    font-size: 2.5em;
-    border-radius: 0;
+  border: 3px solid grey;
+}
+.screen:hover,
+.btn:hover {
+  border: 3px solid rgb(255, 0, 0);
+  opacity: 0.75;
+}
+.btn:active {
+  border: 3px solid violet;
+}
+
+.group {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.group0 {
+  width: 75%;
+}
+.group1 {
+  display: flex;
+  width: 22.5%;
 }
 
 .group0 > .btn {
-    width: 30%;
-    height: 17.5%;
+  width: 30%;
+  height: 17.5%;
 }
 
 .group1 > .btn {
-    width: 100%;
+  width: 100%;
+}
+
+.btn {
+  font-size: 2.5em;
+  border-radius: 0;
+}
+
+.btn-red {
+  background-color: rgb(255, 210, 210);
+}
+.btn-op,
+.btn-equals {
+  background-color: rgb(250, 238, 255);
+}
+.btn-nos,
+.btn-dot {
+  background-color: rgb(245, 255, 233);
 }
 
 #zero {
-    width: 65%;
-    border-radius: 0 0 0 35px;
+  width: 65%;
+  border-radius: 0 0 0 35px;
 }
 
 .menos {
-    height: 17.59%;
+  height: 17.59%;
 }
 .igual {
-    border-radius: 0 0 35px 0;
+  border-radius: 0 0 35px 0;
 }
-.igual, .mas {
-    height: 37.5%;
-}
-
-@media screen and (max-width: 864px) {
-
-    .container {
-        height: 27.5%;
-    }
-    .screen {
-        border-radius: 20px 20px 0 0;
-    }
-
-    .s1 {
-        padding: 3.5% 7.5%;
-        font-size: 1em;
-    }
-    .s2 {
-        padding: 1% 5%;
-        font-size: 1.5em;
-    }
-    .btn {
-        font-size: 1.25em;
-    }
-    #zero {
-        border-radius: 0 0 0 20px;
-    }
-    
-    .igual {
-        border-radius: 0 0 20px 0;
-    }
+.igual,
+.mas {
+  height: 37.5%;
 }
 
-@media (min-aspect-ratio: 6/5) and (max-width:650px) {
-    .igual {
-        font-size: 10em;
-    }
-    .img_bkg, .bkg {
-        -webkit-transform:rotate(90deg); /* Chrome, Safari, Opera */
-        transform:rotate(90deg);
-    }
+@media (max-width: 864px) {
+  .container {
+    height: 100%;
+    max-width: 80%;
+    padding: 1%;
+  }
+  .screen {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .s1 {
+    padding: 3.5% 7.5%;
+    font-size: 1em;
+  }
+  .s2 {
+    padding: 1% 5%;
+    font-size: 1.5em;
+  }
+  .btn {
+    font-size: 1.25em;
+  }
+  #zero {
+    border-radius: 0 0 0 20px;
+  }
+
+  .igual {
+    border-radius: 0 0 20px 0;
+  }
+}
+
+@media (max-width: 864px) and (orientation: landscape) {
+  .container {
+    height: 100%;
+    justify-content: center;
+  }
+  .screen {
+    font-size: 1rem;
+    height: 30%;
+    width: 100%;
+  }
+  .calculator {
+    height: 60%;
+  }
 }
