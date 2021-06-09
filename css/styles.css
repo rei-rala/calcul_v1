@@ -153,6 +153,11 @@ body {
   font-size: 1.15rem;
 }
 
+.s2 {
+  font-family: "Xanh Mono", monospace;
+  font-size: 1.8rem;
+}
+
 .calculator {
   opacity: 0.9;
   display: flex;
